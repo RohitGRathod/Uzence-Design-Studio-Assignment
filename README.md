@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# Uzence-Design-Studio-Assignment
+This project contains two reusable UI components built with React, TypeScript, TailwindCSS, and Storybook.
+Components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1.InputField
 
-Currently, two official plugins are available:
+A reusable input component with the following features:
+-Label, placeholder, helper text, error message
+-States: disabled, invalid
+-Variants: filled | outlined | ghost
+-Sizes: sm | md | lg
+-Optional: clear button, password toggle
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2.DataTable
 
-## Expanding the ESLint configuration
+A reusable data table component with the following features:
+-Display tabular data
+-Column sorting
+-Row selection (single/multiple)
+-Loading state
+-Empty state
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Tech Stack:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+-React (with Vite)
+-TypeScript
+-TailwindCSS
+-Storybook
+-Vitest + React Testing Library
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+src/
+ ├─ components/
+ │   ├─ InputField/
+ │   │   ├─ InputField.tsx
+ │   │   ├─ InputField.stories.tsx
+ │   │   └─ InputField.test.tsx
+ │   ├─ DataTable/
+ │   │   ├─ DataTable.tsx
+ │   │   ├─ DataTable.stories.tsx
+ │   │   └─ DataTable.test.tsx
+ │   └─ index.ts
+ ├─ App.tsx
+ └─ main.tsx
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Getting Started
+1. Clone the repository and install dependencies
+      git clone <your-repo-url>
+      cd frontend-assignment
+      npm install
+2. Run the development server
+       npm run dev
+3. Run Storybook
+       npm run storybook
+4. Run tests
+       npm run test
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Demo:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+App.tsx renders:
+-One InputField (with clearable option)
+-One DataTable (with sample data)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+All other states (error, password toggle, loading, empty) are demonstrated in Storybook.
+
